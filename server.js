@@ -30,6 +30,7 @@ require('./app/routes/coa-tree.routes')(app);
 require('./app/routes/only-coa-tree.routes')(app);
 require('./app/routes/app-config.routes')(app);
 require('./app/routes/coa-sheetname.routes')(app);
+require('./app/routes/mastervalues.routes')(app);
 
 app.listen(3000, () => {
     console.log("Server is listening on port 3000");
