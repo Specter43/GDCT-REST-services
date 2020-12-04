@@ -7,4 +7,6 @@ module.exports = (app) => {
 
     app.post('/mastervalues/all', mastervalues.findAll);
 
+    app.get('/mastervalues/all', mastervalues.findGetAll);
+
 }
