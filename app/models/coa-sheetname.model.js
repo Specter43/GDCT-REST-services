@@ -11,7 +11,7 @@ const COASheetnameModel = mongoose.Schema({
     isActive: {
         type: Boolean
     },
-    templateId: {
+    templateTypeId: {
         type: ObjectId
     }
 }, {collection: 'SheetName'});

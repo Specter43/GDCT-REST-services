@@ -47,7 +47,7 @@ const COATreeService = {
                             sheetName.id = sheetname.id;
                             sheetName.name = sheetname.name;
                             sheetName.isActive = sheetname.isActive;
-                            sheetName.templateId = sheetname.templateId;
+                            sheetName.templateTypeId = sheetname.templateTypeId;
                         })
 
                         // Construction of a Tree node
