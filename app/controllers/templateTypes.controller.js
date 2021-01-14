@@ -1,13 +1,13 @@
+const { json } = require('body-parser');
 const TemplateTypeService = require('../service/templateTypes.service');
 
 exports.find = (req, res) => {
     TemplateTypeService.find().then(templateTypes => {
-        templateTypes = templateTypes.map(type => ({
-            [type._id]: {
-                name: type.name,
-                description: type.description
-            }
-        }))
+        temp = {}
+        templateTypes.forEach(type => {
+            temp[type._id] = {"name": type.name, "description": type.description}
+        })
+        templateTypes = temp
         res.status(200).json({
             status: 'success',
             data: templateTypes,
