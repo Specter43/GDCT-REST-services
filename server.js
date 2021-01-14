@@ -15,7 +15,9 @@ const config = require('./config/columnnames.config');
 
 const url = config.mongoUrl;
 const connect = mongoose.connect(url, {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
 });
 
 connect.then((db) => {
@@ -31,6 +33,7 @@ require('./app/routes/only-coa-tree.routes')(app);
 require('./app/routes/app-config.routes')(app);
 require('./app/routes/coa-sheetname.routes')(app);
 require('./app/routes/mastervalues.routes')(app);
+require('./app/routes/template-types.routes')(app);
 
 app.listen(3000, () => {
     console.log("Server is listening on port 3000");
