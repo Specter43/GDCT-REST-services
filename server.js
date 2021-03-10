@@ -3,16 +3,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
-
-// app.get('/with-cors', cors(), (req, res, next) => {
-//     res.json({ msg: 'WHOAH with CORS it works! 🔝 🎉' })
-// })
-app.use(cors());
-app.options('gdctrest.azurewebsites.net/', cors())
-
 app.use(bodyParser.urlencoded({ extended: true }))
-
 app.use(bodyParser.json())
+
+app.use(cors())
+
+const corsOptions = {
+    origin: 'https://gdctrest.azurewebsites.net',
+} 
+
+app.get('/test', cors(corsOptions), (req, res, next) => {
+    res.json({msg: 'WOW WOW WOW'})
+})
 
 const mongoose = require('mongoose');
 
