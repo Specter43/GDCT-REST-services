@@ -22,10 +22,10 @@ module.exports = (app) => {
     const mastervalues = require('../controllers/mastervalues.controller.js');
     
     app.use((req, res, next) => {
-        res.set('Access-Control-Allow-Origin', ['https://gdctrest.azurewebsites.net']);
+        res.set('Access-Control-Allow-Origin', ['https://gdctrest.azurewebsites.net', 'http://localhost:3000', 'http://localhost:3003']);
         next();
     });
-    
+
     app.get('/mastervalues', mastervalues.find);
 
     app.get('/mastervalues/:organization/:category/:attribute', mastervalues.findByParams);
