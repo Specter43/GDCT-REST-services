@@ -6,11 +6,6 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cors())
-app.use((req, res, next) => {
-    // console.log(req.headers.host)
-    res.set('Access-Control-Allow-Origin', [req.headers.host]);
-    next();
-});
 
 const mongoose = require('mongoose');
 
