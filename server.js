@@ -4,8 +4,11 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
+// app.get('/with-cors', cors(), (req, res, next) => {
+//     res.json({ msg: 'WHOAH with CORS it works! 🔝 🎉' })
+// })
 app.use(cors());
-app.options('*', cors())
+app.options('https://gdctrest.azurewebsites.net/', cors())
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
