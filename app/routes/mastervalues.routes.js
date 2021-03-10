@@ -3,7 +3,7 @@ module.exports = (app) => {
     //'https://gdctrest.azurewebsites.net', 'http://localhost:3000', 'http://localhost:3003'
     app.use((req, res, next) => {
         console.log(req.headers.host)
-        res.set('Access-Control-Allow-Origin', ['http://localhost:3000']);
+        res.set('Access-Control-Allow-Origin', ['http://localhost:3003']);
         next();
     });
 
