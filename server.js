@@ -8,7 +8,7 @@ const app = express();
 //     res.json({ msg: 'WHOAH with CORS it works! 🔝 🎉' })
 // })
 app.use(cors());
-app.options('https://gdctrest.azurewebsites.net/', cors())
+app.options('gdctrest.azurewebsites.net/', cors())
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
