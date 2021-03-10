@@ -42,12 +42,16 @@ const COATreeService = {
                         
                         var sheetName = new Object;
                         COASheetname.findOne({ _id: tree.sheetNameId }, exclude, (err, sheetname) => {
-                            // COASheetname = SheetName (in database)
-                            sheetName._id = tree.sheetNameId;
-                            sheetName.id = sheetname.id;
-                            sheetName.name = sheetname.name;
-                            sheetName.isActive = sheetname.isActive;
-                            sheetName.templateTypeId = sheetname.templateTypeId;
+                            // sheetname = null if there are sheetNameIds exist in CategoryTree Collection, 
+                            // but not for Sheetname Collection itself.
+                            if (sheetname) {
+                                // COASheetname = SheetName (in database)
+                                sheetName._id = tree.sheetNameId;
+                                sheetName.id = sheetname.id;
+                                sheetName.name = sheetname.name;
+                                sheetName.isActive = sheetname.isActive;
+                                sheetName.templateTypeId = sheetname.templateTypeId;
+                            }
                         })
 
                         // Construction of a Tree node
