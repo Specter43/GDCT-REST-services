@@ -5,16 +5,12 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-
 app.use(cors())
-
-const corsOptions = {
-    origin: 'https://gdctrest.azurewebsites.net',
-} 
-
-app.get('/test', cors(corsOptions), (req, res, next) => {
-    res.json({msg: 'WOW WOW WOW'})
-})
+app.use((req, res, next) => {
+    // console.log(req.headers.host)
+    res.set('Access-Control-Allow-Origin', [req.headers.host]);
+    next();
+});
 
 const mongoose = require('mongoose');
 
